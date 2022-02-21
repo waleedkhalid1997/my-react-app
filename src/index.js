@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import timzones from './timezones';
+import Header from './Components/Global/header';
+import Footer from './Components/Global/footer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Header/>
+    {
+      Object.keys(timzones).map(function (i){
+        return <App key={i} title={i +' => '+timzones[i]} zone={i} />
+      })
+    }
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );
